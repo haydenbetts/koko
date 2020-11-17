@@ -19,12 +19,20 @@ body {
 	.email {
 		visibility: hidden;
   }
+
+  .sign-up {
+	  width: unset;
+  }
 }
 
 @media (min-width: 640px) {
 	.email {
 		visibility: visible;
-  }
+	  }
+	
+	  .sign-up {
+		  width: 250px;
+	  }
 }
 
 #results {

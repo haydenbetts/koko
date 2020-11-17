@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useLocation, withRouter } from 'react-router-dom'
 
 const Modal = ({ setShowSignUp, showSignUp }) => {
   const [email, setEmail] = useState("");
@@ -160,16 +161,19 @@ const Modal = ({ setShowSignUp, showSignUp }) => {
   );
 };
 
-const Layout = ({ children }) => {
+const Layout = ({ isHome, children, history }) => {
   const [showSignUp, setShowSignUp] = useState(false);
+  const location = useLocation();
+
+  console.log('location', history)
 
   return (
     <div class="min-h-screen bg-white">
       <nav class="bg-white border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`}>
           <div class="flex justify-between h-16">
             <div class="flex w-full h-full items-center justify-center">
-              <div class="flex items-center justify-center flex-row">
+              <div class="flex items-center justify-center flex-row" style={{cursor: 'pointer'}} onClick={() => history.push('/')}>
                 <div>
                   <img src="logo3.png" class="logo" alt="Koko logo"></img>
                 </div>
@@ -188,14 +192,14 @@ const Layout = ({ children }) => {
                 className="flex items-center justify-center"
                 style={{ height: "100%" }}
               >
-                <a
+                {/* <a
                   onClick={() => setShowSignUp(true)}
                   href="#"
                   class="px-3 py-2 rounded-md text-md leading-5 font-medium text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none transition duration-150 ease-in-out transition duration-150 ease-in-out"
                   style={{ color: "rgb(153, 153, 153)" }}
                 >
                   Email Newsletter
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
@@ -289,7 +293,7 @@ const Layout = ({ children }) => {
       </nav>
 
       <div class="bg-gray-200 rounded-lg min-h-screen">
-        <div class="py-10">
+        <div class={`${(location && (location.pathname === '/')) ? '' : 'py-10'}`}>
           <header>
             {/* <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-bold leading-tight text-gray-900">
@@ -298,7 +302,7 @@ const Layout = ({ children }) => {
       </div> */}
           </header>
           <main>
-            <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+            <div class={`${(location && (location.pathname === '/')) ? '' : 'max-w-4xl mx-auto sm:px-6 lg:px-8'}`}>
               {/* <!-- Replace with your content --> */}
               {/* <div class="px-4 py-8 sm:px-0">
           <div class="border-4 border-dashed border-gray-200 rounded-lg h-96"></div>
@@ -318,4 +322,4 @@ const Layout = ({ children }) => {
   );
 };
 
-export default Layout;
+export default withRouter(Layout);
