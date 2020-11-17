@@ -10,7 +10,7 @@ var sdk = require("microsoft-cognitiveservices-speech-sdk");
  //todo: add key
 const speechConfig = sdk.SpeechConfig.fromSubscription(
 
- "22cfa769a87240e28a9bb026821d790f",
+ "cdf3e0ee02c54ef7bce83865ac57201c",
   "eastus"
 );
 
