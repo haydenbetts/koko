@@ -102,7 +102,7 @@ const Landing = () => {
         </div>
         <div class="bg-gray-800">
           <div class="max-w-screen-xl mx-auto pt-16 pb-20 px-4 sm:px-6 md:pb-24 lg:px-8">
-            <h3 class="text-center text-gray-400 text-sm font-semibold uppercase tracking-wide">Built by passionate nurses and technologists at</h3>
+            <h3 class="text-center text-gray-400 text-sm font-semibold uppercase tracking-wide">Built by passionate nurse innovators and technologists at</h3>
             <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-1 lg:grid-cols-1">
               <div class="col-span-1 flex justify-center md:col-span-1 lg:col-span-1">
                 <img class="h-12" src={h4h} alt="Tuple"/>
